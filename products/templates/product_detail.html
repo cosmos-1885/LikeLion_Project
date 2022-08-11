@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block contents %}
+
+<div class = "row mt-5">
+    <div class = "col-12">
+        <div class = "card" style = "width:100%">
+            <div class = "card-body">
+                <h5 class = "card-title">{{product.name}}</h5>
+            </div>
+            <ul class = "list-group list-group-flush">
+                <li class = "list-group-item">
+                    <form method = "POST" action = "/join/create/">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class = "form-group">
+                            {% if field.name != 'product' %}
+                            <label for = "{{field.id_for_label}}">{{field.label}}</label>
+                            {% endif %}
+                            <input type = "{{field.field.widget.input_type}}" class = "form-control" id = "{{field.id_for_label}}"
+                            placeholder="{{field.label}}" name = "{{field.name}}"
+                            value = "{% if field.name == 'product' %} {{product.id}} {% endif %}">
+                        </div>
+                        {% if field.errors %}
+                        <span style = "color:red">{{field.errors}}</span>
+                        {% endif %}
+                    {% endfor %}
+                        <button type = "submit" class = "btn btn-primary">공구 참여</button>
+                    </form>
+                </li>
+                <li class = "list-group-item">목표 인원 : {{ product.target }} 명</li>
+                <li class = "list-group-item">참여 인원 : {{ product.people }} 명</li>
+                <li class = "list-group-item">상품 가격 : {{ product.price | intcomma }} 원</li>
+                <li class = "list-group-item">수령 장소 : {{ product.place }}</li>
+                <li class = "list-group-item">구매 페이지 : <a href="{{ product.buy_link }}">{{ product.buy_link }}</a></li>
+                <li class = "list-group-item">{{ product.description|safe }} </li>
+                {% if product.product_image %}
+                <li class = "list-group-item"><img src = "{{ product.product_image.url }}", width = "100%"></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

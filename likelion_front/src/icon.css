@@ -1,0 +1,109 @@
+.myPage {
+    cursor: pointer;
+}
+
+.myBox {
+    display: none;
+    position: absolute;
+    left: -38%;
+    width: 100px;
+    padding: 8px;
+    border: 2px solid rgba(36, 176, 255, 1);
+    border-radius: 8px;
+    background: #fff;
+    color: black;
+    margin-top: 1px;
+}
+
+.myBox:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 10px;
+    margin-left: -10px;
+    border: solid transparent;
+    border-bottom-color: rgba(36, 176, 255, 1);
+    border-width: 10px;
+    pointer-events: none;
+    content: " ";
+}
+
+.myPage:hover + .myBox{
+    display: block;
+}
+
+.myBox:hover {
+    display: block;
+}
+
+.myAlarm {
+    margin-left: 25px;
+}
+
+.plus {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.searchIcon {
+    color: rgba(36, 176, 255, 1);
+    margin-left: 10px;
+}
+
+.productTime, .listTimeIcon {
+    size: 20px;
+    color: rgba(36, 176, 255, 1);
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.loginIdPerson, .loginPwLock {
+    margin-left: 25px;
+    color: #9e9e9e;
+}
+
+.accountIcon {
+    margin-left: 25px;
+    color: #9e9e9e;
+}
+
+
+.TitleIcon {
+    size: 40px;
+    color: rgba(36, 176, 255, 1);
+    margin-right: 5px;
+}
+
+
+.heart {
+    color: #fff;
+    position: absolute;
+    z-index: 999;
+    margin-left: 90px;
+    margin-top: 125px;
+}
+
+.termBox {
+    color: white;
+    margin: 5px;
+}
+
+.progressWrap {
+    border: 1px solid #fff;
+    border-radius: 20px;
+    margin-top: 180px;
+    position: absolute;
+    z-index: 3;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.progressName {
+    display: none;
+}
+
+.listChatIcon {
+    color: rgba(36, 176, 255, 1);
+}
